@@ -1,6 +1,4 @@
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.spi.AbstractResourceBundleProvider;
 
 public class Main {
     public static void main(String[] args) {
@@ -65,26 +63,16 @@ public class Main {
     }
 
     private static String calculated(int first, int second, String operator) {
-        int sum;
-            switch (operator) {
-                case "+" :
-                    sum = first + second;
-                    break;
-                case "-" :
-                    sum = first - second;
-                    break;
-                case "*" :
-                    sum = first * second;
-                    break;
-                case "/" :
-                    sum = first / second;
-                    break;
-                default:
-                    throw new RuntimeException("this digit no exist");
-            }
+        int sum = switch (operator) {
+            case "+" -> first + second;
+            case "-" -> first - second;
+            case "*" -> first * second;
+            case "/" -> first / second;
+            default -> throw new RuntimeException("this digit no exist");
+        };
 
 
-            return String.valueOf(sum);
+        return String.valueOf(sum);
         }
 
         private static boolean isArabNumeric(String number) {
@@ -107,31 +95,6 @@ public class Main {
                 }
             }
             return 0;
-
-//        switch (number) {
-//            case "I":
-//                return 1;
-//            case "II":
-//                return 2;
-//            case "III":
-//                return 3;
-//            case "IV":
-//                return 4;
-//            case "V":
-//                return 5;
-//            case "VI":
-//                return 6;
-//            case "VII":
-//                return 7;
-//            case "VIII":
-//                return 8;
-//            case "XI":
-//                return 9;
-//            case "X":
-//                return 10;
-//            default:
-//                throw new RuntimeException("this romain number not exist");
-//        }
 
         }
 }
